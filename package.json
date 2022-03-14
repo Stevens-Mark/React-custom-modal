@@ -1,19 +1,41 @@
 {
-  "name": "react-custom-modal",
+  "name": "react-custom-modal-by-msparkystevens",
   "version": "0.1.0",
-  "private": true,
+  "description": "Customisable modal - React component",
+  "author": "Mark Stevens",
+  "keywords": [
+    "react",
+    "modal",
+    "plugin",
+    "customisable"
+  ],
+  "private": false,
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Stevens-Mark/............."
+  },
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.4",
     "@testing-library/user-event": "^13.5.0",
+    "prop-types": "^15.8.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "5.0.0",
+    "styled-components": "^5.3.3",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "buildreact": "react-scripts build",
+    "build": "rm -rf dist && cross-env NODE_ENV=production  babel src/lib --out-dir dist --copy-files",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

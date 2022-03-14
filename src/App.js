@@ -1,25 +1,67 @@
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
+import React from "react"
+import { useState, useContext } from "react"
+import { ThemeContext } from "./utils/context"
+// for styling
+import styled from 'styled-components'
+import colors from './lib/styles/colors'
+import { lightTheme, darkTheme } from "./lib/styles/themes"
+// import component & logo
+import Modal from './lib/components/modal'
+import logo from './lib/assets/LogoGoesHere.webp'
+
+/**
+ * CSS using styled components
+ */
+const Main = styled.main`
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  // justify-content: center;
+`;
+
+const Button = styled.button`
+  background: white;
+  border-radius: 1rem;
+  color: ${colors.secondary};
+  cursor: pointer;
+  font-size: 1rem;
+  margin: 30px;
+  padding: 10px;
+`;
+
+const App = () => {
+
+  const [modalIsOpen, setModalIsOpen] = useState(false)
+
+  // const [mode, setMode] = useState('light')
+  // const toggleMode = () => { setMode(mode === 'light' ? 'dark' : 'light') }
+
+  const { toggleMode, mode } = useContext(ThemeContext)
+  const  closeModal = () => { setModalIsOpen(false) }
+  const  handleSubmit = () => { setModalIsOpen(true) }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Main>
+      <h1>Example</h1>
+
+      <Button  onClick={() => toggleMode()}>Change Mode : {mode === 'light' ? '☀️' : '🌙'}</Button>
+
+      <Button  onClick={() => handleSubmit()}>Open Modal</Button>
+      
+      {modalIsOpen && 
+      
+      <Modal 
+        closeModal={closeModal} 
+        modalTheme={mode ==='dark'? darkTheme : lightTheme} 
+        heading="Message here"
+        message="optional shorter message here"
+        logo={logo}
+        animation={true}
+      />
+      }
+    </Main>
+  )
 }
 
-export default App;
+export default App

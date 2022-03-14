@@ -1,70 +1,248 @@
-# Getting Started with Create React App
+# A Customisable Modal React component (Light/Dark mode & animation)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## About this the Modal component
 
-## Available Scripts
+This modal comes with default colours already installed, but can be changed if preferred.
+It is also possible to set themes for both light & dark modes (if you need this option) as well as choose whether you want to use the preset animation. Note: Focus trap is already applied to the modal for keyboard users.
 
-In the project directory, you can run:
+You can
+- [x] Change the modal's page background colour
+- [x] Change the modal's body colour
+- [x] Change the modal's text colour
+- [x] Change the modal's border outline
+- [x] Change the modal's close button colour
+- [x] Add/remove/change the modal's box shadow
+- [x] Add/remove the modal's default border-radius
+- [x] Add a modal logo
+- [x] Change modal's heading
+- [x] Add a secondary message
+- [x] Add/remove default modal animation (animation: modal descends into view)
 
-### `npm start`
+## Installation
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+You can install this component with npm or yarn:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+    npm i ....................
 
-### `npm test`
+    yarn add ..................
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Import the Modal component (How to use)
 
-### `npm run build`
+Import the Modal component into the file where you want to use it, then simply add/remove the options you want and/or define your colours as needed.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+    import { Modal } from '....................'
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# Examples
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+I have provided some examples of styling the modal, starting with a basic modal and including how a modal with light/dark themes can be implemented.
 
-### `npm run eject`
+## Example ONE
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+A Basic Modal using the default colours & ONE simple Heading message (no animation)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<p align="center">
+  <img src="/src/lib/assets/screenShots/DefaultBasic.png" alt="Default Modal" title="Default Modal">
+</p>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+**App.js**
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```js
+import { useState } from "react"
+import { Modal } from '...................'
 
-## Learn More
+const App = () => {
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+  // state & function to open and close the Modal
+  const [modalIsOpen, setModalIsOpen] = useState(false)
+  const  closeModal = () => { setModalIsOpen(false) }
+  const  handleSubmit = () => { setModalIsOpen(true) }
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+   return (
+    <Main>
+      <h1>Basic modal with simple message and default colours</h1>
 
-### Code Splitting
+      <Button  onClick={() => handleSubmit()}>Open Modal</Button>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+      {modalIsOpen && 
+      <Modal 
+        closeModal={closeModal}     // function to set state: close modal (required)
+        modalTheme={{}}             // if {{}} default colours will be applied (required)
+        heading="Message here"      // put heading message here (required)
+      />
+      }
+    </Main>
+  )
+}
+export default App
+```
 
-### Analyzing the Bundle Size
+## Example TWO
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+FULL modal with a user defined colour theme, logo, Heading and short message (animated modal)
 
-### Making a Progressive Web App
+<p align="center">
+  <img src="/src/lib/assets/screenShots/UserDefined.png" alt="User Defined Modal" title="User Defined Modal">
+</p>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+**App.js**
 
-### Advanced Configuration
+```js
+import { useState } from "react"
+// import component & logo for modal (see below)
+import { Modal } from '...................'
+import logo from './lib/assets/LogoGoesHere.webp'
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
+const App = () => {
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+  const [modalIsOpen, setModalIsOpen] = useState(false)
+  const  closeModal = () => { setModalIsOpen(false) }
+  const  handleSubmit = () => { setModalIsOpen(true) }
 
-### `npm run build` fails to minify
+  // Define the theme colours for the modal (if any left blank '' the default colours are applied)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+  const lightTheme = {
+    pageBg: '#20c997',                            // set background colour of whole page when modal is open
+    modalBg: '#28a745',                           // set background colour of the modal body
+    modalTxt: '#fff',                             // set text colour of the modal
+    modalBorder: 'solid 2px #000',                // set border outline of the modal
+    modalBtnColor: '#fff',                        // set colour of the "X" close button on the modal
+    modalShadow: 'rgba(0, 0, 0, 1) 0px 5px 15px'  // set modal box shadow
+    // modalRadius: "false",                      // remove the default border-radius
+  }
+
+   return (
+    <Main>
+      <h1>modal with a user defined colour theme...</h1>
+
+      <Button  onClick={() => handleSubmit()}>Open Modal</Button>
+
+      {modalIsOpen && 
+      <Modal 
+        closeModal={closeModal}                 // function to close the modal (required)
+        modalTheme={lightTheme}                 // 'lightTheme' added here to pass the theme to the modal
+        heading="Your message"                  // heading here (required)
+        message="optional shorter message here" // short message here (optional)
+        animation={true}                        // animate modal (if omitted, default is false) (optional)
+      />
+      }
+    </Main>
+  )
+}
+export default App
+
+```
+
+## Example THREE
+
+FULL modal with user defined colour themes (LIGHT & DARK MODE) (animated modal)
+
+<p align="center">
+  <img src="/src/lib/assets/screenShots/UserDefinedLightMode.png" alt="Light Mode Modal" title="Light Mode Modal">
+  <img src="/src/lib/assets/screenShots/UserDefinedDarkMode.png" alt="Dark Mode Modal" title="Dark Mode Modal">
+</p>
+
+**index.js**
+
+```js
+import React from 'react'
+import ReactDOM from 'react-dom'
+import App from './App'
+import { ModeProvider } from './utils/context'
+
+// wrap components in Mode/theme provider
+
+ReactDOM.render(
+  <React.StrictMode>
+    <ModeProvider>          
+      <App />
+    </ModeProvider>
+  </React.StrictMode>,
+  document.getElementById('root')
+)
+
+```
+
+**Context.js**
+
+```js
+import { useState, createContext } from "react"
+export const ThemeContext = createContext()
+
+// dark/light theme provider: css styling (light/dark depending on state)
+export const ModeProvider = ({ children }) => {
+
+  // state light/dark
+  const [mode, setMode] = useState('light')
+  const toggleMode = () => {
+    setMode(mode === 'light' ? 'dark' : 'light')    // toggle state between light/dark
+  }
+  return (
+      <ThemeContext.Provider value={{ mode, toggleMode }}>
+          {children}
+      </ThemeContext.Provider>
+  )
+}
+
+```
+
+**App.js**
+
+```js
+import { useState, useContext } from "react"
+import { ThemeContext } from "./utils/context"
+// import component & logo for modal (see below)
+import { Modal } from '...................'
+import logo from './lib/assets/LogoGoesHere.webp'
+
+const App = () => {
+
+  const [modalIsOpen, setModalIsOpen] = useState(false)
+  const  closeModal = () => { setModalIsOpen(false) }
+  const  handleSubmit = () => { setModalIsOpen(true) }
+
+  const { toggleMode, mode } = useContext(ThemeContext)
+  
+  // Define light theme
+  const lightTheme = {
+    pageBg: 'rgba(248, 249, 250, 0.8)',               
+    modalBg: '#17a2b8',              
+    modalTxt: '#fff',                
+    modalBorder: 'solid 2px #000',   
+    modalBtnColor: '#fff',
+    modalShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px'            
+  }
+
+  // Define dark theme
+  const darkTheme = {
+    pageBg: 'rgba(35, 53, 84, 0.8)',               
+    modalBg: '#0a192f',              
+    modalTxt: '#64ffda',                
+    modalBorder: 'solid 2px #3297FD',   
+    modalBtnColor: '#64ffda', 
+    modalShadow: 'rgba(0, 0, 0, 1) 0px 5px 15px'            
+  }
+
+  return (
+    <Main>
+      <h1>FULL modal (LIGHT and DARK MODE)</h1>
+      
+      <Button  onClick={() => hanleSubmit()}>Open Modal</Button> 
+      <Button  onClick={() => toggleMode()}>Change Mode : {mode === 'light' ? '☀️' : '🌙'}</Button>
+
+      {modalIsOpen && 
+      <Modal 
+        closeModal={closeModal} 
+        modalTheme={mode ==='dark'? darkTheme : lightTheme} // 'lightTheme' or 'darkTheme' passed
+        heading="Message here"                              // as theme depending on state
+        message="optional shorter message here"
+        logo={logo}
+        animation={true}                               
+      />
+      }
+    </Main>
+  )
+}
+export default App
+
+```
