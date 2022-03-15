@@ -1,3 +1,6 @@
+/* eslint-disable no-mixed-operators *//* eslint-disable no-func-assign *//* eslint-disable strict */
+
+
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {

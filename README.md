@@ -20,7 +20,8 @@ You can
 
 ## Installation
 
-You can install this component with npm or yarn:
+Depending on the Package Manager you use, you can install this component with npm or yarn.
+I advise NOT to mix Package Managers, otherwise this package may not work.....
 
     npm i react-custom-modal-by-msparkystevens
 
@@ -246,3 +247,5 @@ const App = () => {
 export default App
 
 ```
+
+[Customisable Modal React](https://www.npmjs.com/package/react-custom-modal-by-msparkystevens)

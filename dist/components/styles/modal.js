@@ -1,3 +1,6 @@
+/* eslint-disable strict *//* eslint-disable no-func-assign *//* eslint-disable no-mixed-operators */
+
+
 "use strict";
 
 require("core-js/modules/web.dom-collections.iterator.js");
@@ -26,7 +29,7 @@ const fadeIn = (0, _styledComponents.keyframes)(_templateObject2 || (_templateOb
 * CSS for the component using styled.components
 */
 
-const ModalWrapper = _styledComponents.default.div(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n width: 100%;\n height: 100vh;\n align-items: center;\n animation: ", "}\n background-color: ", ";\n bottom: 0;\n display: flex;\n justify-content: center;\n left: 0;\n position: fixed;\n right: 0;\n top: 0;\n z-index: 1;\n"])), props => props.animation && (0, _styledComponents.css)(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral([" ", " 0.5s ease-out forwards"])), fadeIn), props => props.theme.pageBg ? props.theme.pageBg : 'rgba(237, 240, 241, 0.8)');
+const ModalWrapper = _styledComponents.default.div(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n width: 100%;\n height: 100vh;\n align-items: center;\n animation: ", "}\n background-color: ", ";\n bottom: 0;\n display: flex;\n justify-content: center;\n left: 0;\n position: fixed;\n right: 0;\n top: 0;\n z-index: 99999;\n"])), props => props.animation && (0, _styledComponents.css)(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral([" ", " 0.5s ease-out forwards"])), fadeIn), props => props.theme.pageBg ? props.theme.pageBg : 'rgba(237, 240, 241, 0.8)');
 
 exports.ModalWrapper = ModalWrapper;
 
