@@ -76,7 +76,7 @@ Modal.propTypes = {
   logo: PropTypes.string,
   heading: PropTypes.string.isRequired,
   message : PropTypes.string,
-}
+};
 
 
 
