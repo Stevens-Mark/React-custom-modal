@@ -4,11 +4,11 @@ import { useState, useContext } from "react"
 import { ThemeContext } from "./utils/context"
 // for styling
 import styled from 'styled-components'
-import colors from './lib/styles/colors'
-import { lightTheme, darkTheme } from "./lib/styles/themes"
+import colors from './lib/components/styles/ColourThemes'
+import { lightTheme, darkTheme } from "./lib/components/styles/ColourThemes"
 // import component & logo
 import Modal from './lib/components/modal'
-import logo from './lib/assets/LogoGoesHere.webp'
+import logo from './lib/components/assets/LogoGoesHere.webp'
 
 /**
  * CSS using styled components

@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types'
-import { useEffect } from "react"
+import React, { useEffect } from "react"
 // svg icon as react component
-import { ReactComponent as CloseButton } from '../assets/close-x.svg'
+import { ReactComponent as CloseButton } from '../components/assets/close-x.svg'
 // styling
 import { ThemeProvider } from "styled-components"
-import { ModalWrapper, ModalBody, Close, Content } from '../styles/modal'
+import { ModalWrapper, ModalBody, Close, Content } from './styles/modal'
 
 /**
  * Renders a confirmation modal
