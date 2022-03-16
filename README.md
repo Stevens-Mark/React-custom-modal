@@ -20,17 +20,18 @@ You can
 
 ## Installation
 
-You can install this component with npm or yarn:
+Depending on the Package Manager you use, you can install this component with npm or yarn.
+I advise NOT to mix Package Managers, otherwise this package may not work.....
 
-    npm i ....................
+    npm i react-custom-modal-by-msparkystevens
 
-    yarn add ..................
+    yarn add react-custom-modal-by-msparkystevens
 
 ## Import the Modal component (How to use)
 
 Import the Modal component into the file where you want to use it, then simply add/remove the options you want and/or define your colours as needed.
 
-    import { Modal } from '....................'
+    import { Modal } from 'react-custom-modal-by-msparkystevens'
 
 # Examples
 
@@ -41,14 +42,14 @@ I have provided some examples of styling the modal, starting with a basic modal 
 A Basic Modal using the default colours & ONE simple Heading message (no animation)
 
 <p align="center">
-  <img src="/src/lib/assets/screenShots/DefaultBasic.png" alt="Default Modal" title="Default Modal">
+  <img src="/src/lib/components/assets/screenShots/DefaultBasic.png" alt="Default Modal" title="Default Modal">
 </p>
 
 **App.js**
 
 ```js
 import { useState } from "react"
-import { Modal } from '...................'
+import { Modal} from 'react-custom-modal-by-msparkystevens'
 
 const App = () => {
 
@@ -81,7 +82,7 @@ export default App
 FULL modal with a user defined colour theme, logo, Heading and short message (animated modal)
 
 <p align="center">
-  <img src="/src/lib/assets/screenShots/UserDefined.png" alt="User Defined Modal" title="User Defined Modal">
+  <img src="/src/lib/components/assets/screenShots/UserDefined.png" alt="User Defined Modal" title="User Defined Modal">
 </p>
 
 **App.js**
@@ -89,8 +90,8 @@ FULL modal with a user defined colour theme, logo, Heading and short message (an
 ```js
 import { useState } from "react"
 // import component & logo for modal (see below)
-import { Modal } from '...................'
-import logo from './lib/assets/LogoGoesHere.webp'
+import { Modal } from 'react-custom-modal-by-msparkystevens'
+import logo from './path/to/your/asset/image...'
 
 
 const App = () => {
@@ -138,8 +139,8 @@ export default App
 FULL modal with user defined colour themes (LIGHT & DARK MODE) (animated modal)
 
 <p align="center">
-  <img src="/src/lib/assets/screenShots/UserDefinedLightMode.png" alt="Light Mode Modal" title="Light Mode Modal">
-  <img src="/src/lib/assets/screenShots/UserDefinedDarkMode.png" alt="Dark Mode Modal" title="Dark Mode Modal">
+  <img src="/src/lib/components/assets/screenShots/UserDefinedLightMode.png" alt="Light Mode Modal" title="Light Mode Modal">
+  <img src="/src/lib/components/assets/screenShots/UserDefinedDarkMode.png" alt="Dark Mode Modal" title="Dark Mode Modal">
 </p>
 
 **index.js**
@@ -192,8 +193,8 @@ export const ModeProvider = ({ children }) => {
 import { useState, useContext } from "react"
 import { ThemeContext } from "./utils/context"
 // import component & logo for modal (see below)
-import { Modal } from '...................'
-import logo from './lib/assets/LogoGoesHere.webp'
+import { Modal } from 'react-custom-modal-by-msparkystevens'
+import logo from './path/to/your/asset/image...'
 
 const App = () => {
 
@@ -246,3 +247,5 @@ const App = () => {
 export default App
 
 ```
+
+[Customisable Modal React](https://www.npmjs.com/package/react-custom-modal-by-msparkystevens)
