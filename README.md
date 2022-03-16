@@ -249,3 +249,4 @@ export default App
 ```
 
 [Customisable Modal React](https://www.npmjs.com/package/react-custom-modal-by-msparkystevens)
+[Demo](https://reactcustommodal.netlify.app/)
