@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/6ce8c348-ad7c-4972-afc6-840523cb4dee/deploy-status)](https://app.netlify.com/sites/reactcustommodal/deploys)
+
 # A Customisable Modal React component (Light/Dark mode & animation)
 
 ## About this the Modal component
