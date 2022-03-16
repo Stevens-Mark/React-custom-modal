@@ -247,7 +247,8 @@ const App = () => {
 export default App
 
 ```
+**NPM Package**
+[Customisable Modal React](https://www.npmjs.com/package/react-custom-modal-by-msparkystevens)
 
-![Customisable Modal React](https://www.npmjs.com/package/react-custom-modal-by-msparkystevens)
-
-![Demo](https://reactcustommodal.netlify.app/)
+**Demo**
+[Demo](https://reactcustommodal.netlify.app/)
