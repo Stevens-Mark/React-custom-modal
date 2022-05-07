@@ -79,7 +79,7 @@ export default App
 
 ## Example TWO
 
-FULL modal with a user defined colour theme, logo, Heading and short message (animated modal)
+FULL modal with a user defined colour theme, heading and short message (animated modal)
 
 <p align="center">
   <img src="/src/lib/components/assets/screenShots/UserDefined.png" alt="User Defined Modal" title="User Defined Modal">
